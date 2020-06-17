@@ -43,14 +43,14 @@ public class Facade {
                     c.setTotalPrice(p1.getValue());
                     break;
                 case "2":
-                    c.setTotalPrice(p3.getValue());
+                    c.setTotalPrice(p2.getValue());
                     break;
                 case "3":
-                    c.setTotalPrice(p2.getValue());
+                    c.setTotalPrice(p3.getValue());
                     break;
             }
 
-            System.out.println("O seu carrinho contém os seguintes itens: " + c.getCartContent().toString());
+            System.out.println("\n\nSaldo atual do carrinho: " + c.getTotalPrice());
 
         }
 

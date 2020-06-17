@@ -21,11 +21,9 @@ public class Cart implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("AAAAAAAAAA");
         Product p = (Product) o;
-        System.out.println(p);
         data.add(p);
-        System.out.println(getCartContent().toString());
+        System.out.println("Item " + p.getName() + " adicionado ao carrinho.");
     }
 
     public ArrayList<Product> getCartContent() {
