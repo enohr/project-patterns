@@ -1,16 +1,16 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Card {
 
     private boolean type;
     private String cardCode;
     private String securityCode;
-    private Date date;
+    private LocalDate date;
     private double total;
 
-    public Card(boolean type, String cardCode, String securityCode, Date date){
+    public Card(boolean type, String cardCode, String securityCode, LocalDate date){
         this.total = 2000;
         this.type = type;
         this.cardCode = cardCode;

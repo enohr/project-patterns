@@ -3,7 +3,7 @@ package payments;
 import interfaces.Strategy;
 import model.Card;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class CardPayment implements Strategy{
@@ -11,6 +11,7 @@ public class CardPayment implements Strategy{
     private final Scanner input = new Scanner(System.in);
     private Card card;
     private boolean type;
+    LocalDate data = null;
 
     public CardPayment(boolean type){
         this.type = type;
@@ -25,13 +26,24 @@ public class CardPayment implements Strategy{
         String securityCode = input.nextLine();
         System.out.println("Informe a data de validade do cartão");
         String date = input.nextLine();
+        validateDate(date);
 
-        card = new Card(type, cardCode, securityCode, new Date(date));
+        card = new Card(type, cardCode, securityCode, data);
 
         if (value > card.getTotal() && type) {
             System.out.println("Saldo insuficiente");
             return false;
         }
         return true;
+    }
+
+    private void validateDate(String date) {
+        try {
+            data = LocalDate.parse(date);
+
+        } catch (Exception e) {
+            System.out.println("A Data informada não é valida;");
+            System.exit(0);
+        }
     }
 }
