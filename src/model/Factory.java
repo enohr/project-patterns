@@ -1,7 +1,8 @@
 package model;
 
-import controller.CardPayment;
-import controller.Paypal;
+import interfaces.Strategy;
+import payments.CardPayment;
+import payments.Paypal;
 
 public class Factory{
     public Strategy chooseStrategy (String choice) {

@@ -1,6 +1,6 @@
-package controller;
+package payments;
 
-import model.Strategy;
+import interfaces.Strategy;
 import model.Card;
 
 import java.util.Date;

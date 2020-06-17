@@ -1,9 +1,8 @@
+import interfaces.Strategy;
 import model.Cart;
 import model.Factory;
 import model.Product;
-import model.Strategy;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Facade {

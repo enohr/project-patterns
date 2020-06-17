@@ -1,6 +1,6 @@
-package controller;
+package payments;
 
-import model.Strategy;
+import interfaces.Strategy;
 
 public class Paypal implements Strategy {
     @Override
