@@ -2,7 +2,6 @@ import interfaces.Strategy;
 import model.Cart;
 import model.Factory;
 import model.Product;
-
 import java.util.Scanner;
 
 public class Facade {
@@ -15,10 +14,14 @@ public class Facade {
     Cart c;
 
     public Facade() {
-        p1 = new Product(35, "Teste");
-        p2 = new Product(35, "Teste2");
-        p3 = new Product(35, "Teste3");
-        c = new Cart();
+        p1 = new Product(10, "Bala");
+        p2 = new Product(20, "Lapis");
+        p3 = new Product(30, "Borracha");
+
+        // Singleton
+        if (c == null) {
+            c = new Cart(p1, p2, p3);
+        }
     }
 
 
@@ -35,6 +38,19 @@ public class Facade {
 
             in = input.nextLine();
 
+            switch(in) {
+                case "1":
+                    c.setTotalPrice(p1.getValue());
+                    break;
+                case "2":
+                    c.setTotalPrice(p3.getValue());
+                    break;
+                case "3":
+                    c.setTotalPrice(p2.getValue());
+                    break;
+            }
+
+            System.out.println("O seu carrinho contém os seguintes itens: " + c.getCartContent().toString());
 
         }
 
@@ -46,7 +62,7 @@ public class Facade {
         System.out.println("0 - Encerrar.");
 
         in = input.nextLine();
-        if (in == "0") System.exit(0);
+        if (in.equals("0")) System.exit(0);
         Factory f = new Factory();
         str = f.chooseStrategy(in);
         if (str == null) System.exit(0);

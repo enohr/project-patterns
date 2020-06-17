@@ -16,6 +16,8 @@ public class Product extends Observable {
     }
 
     public double getValue() {
+        setChanged();
+        notifyObservers();
         return this.value;
     }
 
